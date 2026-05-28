@@ -446,11 +446,23 @@ def page(path, title, desc, body, active="", ld=None, slug=""):
 </body>
 </html>
 """
+    # Rewrite absolute site paths to RELATIVE paths so the /claude/ site works
+    # in any serving context (file://, /claude/ mounted as root, or domain root).
+    # Metadata URLs (canonical, og:url, JSON-LD) stay absolute and are untouched.
+    import re as _re
+    depth = path.count("/")            # index.html=0, pricing/index.html=1, services/x/index.html=2
+    up = "../" * depth
+    root_href = up if up else "./"
+    asset_prefix = up + "assets/"      # self-contained: claude/assets/ exists at the claude root
+    html = html.replace('href="/claude/"', f'href="{root_href}"')
+    html = html.replace('="/assets/', f'="{asset_prefix}')
+    html = html.replace('href="/claude/', f'href="{up}')
+
     full = os.path.join(OUT, path)
     os.makedirs(os.path.dirname(full), exist_ok=True)
     with open(full, "w", encoding="utf-8") as f:
         f.write(html)
-    print("wrote", path, len(html))
+    print("wrote", path, len(html), "depth", depth)
 
 def faq_section(title, pairs, label="FAQs"):
     items = "".join(
