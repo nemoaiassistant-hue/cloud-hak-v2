@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Voice Agents — Never Miss a Call Again — Cloud Hak</title>
+<meta name="description" content="AI voice agents answer, route and book calls 24/7 for local businesses, so you never miss a lead. From £300/mo.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://cloud-hak.com/claude/services/voice-ai/">
+<meta property="og:title" content="AI Voice Agents — Never Miss a Call Again — Cloud Hak">
+<meta property="og:description" content="AI voice agents answer, route and book calls 24/7 for local businesses, so you never miss a lead. From £300/mo.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cloud-hak.com/claude/services/voice-ai/">
+<meta property="og:site_name" content="Cloud Hak">
+<meta property="og:image" content="https://cloud-hak.com/assets/logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#070b16;--bg-1:#0a0f1c;--bg-2:#0e1626;--bg-3:#13203a;
+--blue:#4f6ef7;--teal:#3bb6b3;--green:#22c55e;--amber:#f59e0b;
+--white:#f8fafc;--mut:#9aa7bd;--mut-2:#6b7a93;
+--line:rgba(148,163,184,.14);--line-2:rgba(148,163,184,.22);
+--card:rgba(255,255,255,.035);--card-2:rgba(255,255,255,.06);
+--rad:18px;--maxw:1180px;
+--grad:linear-gradient(120deg,#5b7bff,#3bb6b3);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+background:var(--bg);color:var(--white);font-size:16px;line-height:1.65;
+-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+button,input,select,textarea{font:inherit}
+h1,h2,h3,h4{margin:0;line-height:1.15;letter-spacing:-.02em;font-weight:800}
+p{margin:0}
+.wrap{width:min(var(--maxw),100%);margin:0 auto;padding:0 26px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;
+-webkit-text-fill-color:transparent;color:transparent}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;
+letter-spacing:.14em;text-transform:uppercase;color:var(--teal);
+padding:7px 14px;border:1px solid var(--line-2);border-radius:999px;
+background:rgba(59,182,179,.07)}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);
+box-shadow:0 0 12px var(--teal)}
+.muted{color:var(--mut)}
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:74px;
+background:rgba(7,11,22,.72);backdrop-filter:blur(16px) saturate(140%);
+border-bottom:1px solid var(--line)}
+.nav-in{height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand img{width:152px}
+.menu{display:flex;align-items:center;gap:6px}
+.menu>a,.dd>button{display:inline-flex;align-items:center;gap:6px;color:var(--mut);
+font-weight:600;font-size:15px;padding:9px 14px;border-radius:10px;border:0;
+background:none;cursor:pointer;transition:.18s}
+.menu>a:hover,.dd>button:hover,.menu>a.on{color:var(--white);background:var(--card-2)}
+.dd{position:relative}
+.dd-menu{position:absolute;top:54px;left:0;min-width:230px;padding:8px;
+background:var(--bg-2);border:1px solid var(--line-2);border-radius:14px;
+box-shadow:0 24px 60px rgba(0,0,0,.5);opacity:0;visibility:hidden;
+transform:translateY(8px);transition:.18s}
+.dd:hover .dd-menu,.dd:focus-within .dd-menu{opacity:1;visibility:visible;transform:none}
+.dd-menu a{display:flex;flex-direction:column;padding:10px 12px;border-radius:10px;color:var(--white);font-weight:600}
+.dd-menu a span{font-size:12.5px;color:var(--mut);font-weight:500}
+.dd-menu a:hover{background:var(--card-2)}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.burger{display:none;width:46px;height:42px;border:1px solid var(--line-2);
+border-radius:11px;background:none;cursor:pointer}
+.burger span{display:block;width:20px;height:2px;background:var(--white);margin:5px auto;transition:.2s}
+.mobile{position:fixed;inset:74px 0 0;background:#000;z-index:1001;display:none;
+padding:30px 26px;overflow-y:auto}
+.mobile.open{display:block}
+.mobile a{display:block;padding:16px 4px;font-size:18px;font-weight:700;
+color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.mobile .mlabel{color:var(--teal);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+padding:22px 4px 6px;border:0}
+body.lock{overflow:hidden}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+font-weight:700;font-size:15.5px;padding:14px 26px;border-radius:12px;
+border:1px solid transparent;cursor:pointer;transition:.2s;min-height:50px}
+.btn-pri{background:var(--grad);color:#fff;box-shadow:0 10px 30px rgba(79,110,247,.32)}
+.btn-pri:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(79,110,247,.45)}
+.btn-gho{background:rgba(255,255,255,.06);color:#fff;border-color:var(--line-2)}
+.btn-gho:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+.btn-sm{padding:10px 18px;min-height:42px;font-size:14.5px}
+.btn-block{width:100%}
+/* sections */
+section{position:relative;padding:96px 0}
+.sec-head{max-width:720px;margin:0 0 48px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+h1{font-size:clamp(34px,5.4vw,60px)}
+h2{font-size:clamp(28px,3.6vw,42px)}
+.sec-head p{color:var(--mut);font-size:18px;margin-top:16px}
+.lead{color:var(--mut);font-size:19px;max-width:620px}
+/* hero */
+.hero{padding:150px 0 96px;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;pointer-events:none;z-index:0}
+.orb-a{width:520px;height:520px;background:radial-gradient(circle,#4f6ef7,transparent 70%);top:-160px;left:-120px}
+.orb-b{width:460px;height:460px;background:radial-gradient(circle,#3bb6b3,transparent 70%);top:40px;right:-140px;opacity:.4}
+.hero .wrap{position:relative;z-index:1}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero h1{margin:22px 0}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero-note{margin-top:22px;color:var(--mut-2);font-size:14px}
+.glass-card{background:var(--card);border:1px solid var(--line-2);border-radius:24px;
+padding:28px;backdrop-filter:blur(8px);box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat{padding:20px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.03)}
+.stat .n{font-size:30px;font-weight:900}
+.stat .l{font-size:13px;color:var(--mut);margin-top:4px}
+/* marquee */
+.marq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+background:var(--bg-1);padding:20px 0;overflow:hidden;white-space:nowrap}
+.marq-track{display:inline-flex;gap:48px;animation:scroll 28s linear infinite;font-weight:700;color:var(--mut)}
+.marq-track span{display:inline-flex;align-items:center;gap:48px}
+.marq-track span::after{content:"\2022";color:var(--teal)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+/* generic grids */
+.grid{display:grid;gap:22px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+/* cards */
+.card{position:relative;background:var(--card);border:1px solid var(--line-2);
+border-radius:var(--rad);padding:30px;transition:.22s;overflow:hidden}
+.card::after{content:"";position:absolute;inset:0;border-radius:var(--rad);
+padding:1px;background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:.22s;pointer-events:none}
+.card:hover{transform:translateY(-6px);background:var(--card-2)}
+.card:hover::after{opacity:1}
+.card .ico{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;
+font-size:26px;margin-bottom:18px;background:linear-gradient(135deg,rgba(79,110,247,.22),rgba(59,182,179,.18));
+border:1px solid var(--line-2)}
+.card h3{font-size:21px;margin-bottom:10px}
+.card p{color:var(--mut);font-size:15px}
+.card .more{display:inline-flex;align-items:center;gap:7px;margin-top:16px;color:var(--blue);font-weight:700;font-size:14.5px}
+.card.click .more::after{content:"";position:absolute;inset:0}
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.bento .card{margin:0}
+.b-wide{grid-column:span 3}
+.b-tall{grid-column:span 3}
+.b-third{grid-column:span 2}
+/* steps */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.step{position:relative;padding:30px;border:1px solid var(--line);border-radius:var(--rad);
+background:var(--card)}
+.step .num{font-size:15px;font-weight:900;width:42px;height:42px;border-radius:12px;
+display:grid;place-items:center;background:var(--grad);color:#fff;margin-bottom:18px}
+.step h3{font-size:20px;margin-bottom:10px}
+.step p{color:var(--mut);font-size:15px}
+/* feature list */
+.flist{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.flist li{position:relative;padding-left:30px;color:var(--mut)}
+.flist li::before{content:"";position:absolute;left:0;top:7px;width:18px;height:18px;
+border-radius:6px;background:linear-gradient(135deg,var(--blue),var(--teal))}
+.flist li::after{content:"\2713";position:absolute;left:4px;top:5px;color:#fff;font-size:12px;font-weight:900}
+/* at a glance */
+.glance{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+.glance>div{padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.glance dt{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+.glance dd{margin:8px 0 0;font-weight:800;font-size:16px}
+/* pricing */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:start}
+.tier{position:relative;padding:34px;border:1px solid var(--line-2);border-radius:22px;background:var(--card)}
+.tier.feat{border-color:transparent;background:linear-gradient(var(--bg-2),var(--bg-2)) padding-box,var(--grad) border-box;
+border:2px solid transparent;box-shadow:0 24px 60px rgba(79,110,247,.22)}
+.tier .tag{position:absolute;top:-13px;left:34px;background:var(--grad);color:#fff;
+font-size:12px;font-weight:800;letter-spacing:.06em;padding:5px 12px;border-radius:999px}
+.tier h3{font-size:20px}
+.tier .price{font-size:42px;font-weight:900;margin:10px 0 4px}
+.tier .price small{font-size:16px;font-weight:700;color:var(--mut)}
+.tier .flist{margin:22px 0 26px}
+/* roi */
+.roi{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.field{margin-bottom:16px}
+.field label{display:block;font-weight:700;font-size:14px;margin-bottom:8px}
+.field input,.field select,.field textarea{width:100%;padding:14px 15px;border-radius:12px;
+border:1px solid var(--line-2);background:rgba(255,255,255,.04);color:#fff}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue);
+box-shadow:0 0 0 3px rgba(79,110,247,.25)}
+.field select option{background:#0e1626}
+.roi-out{padding:28px;border-radius:18px;text-align:center;
+background:linear-gradient(135deg,rgba(34,197,94,.14),rgba(59,182,179,.12));
+border:1px solid rgba(34,197,94,.3)}
+.roi-out .big{font-size:44px;font-weight:900;margin:6px 0}
+/* testimonials */
+.quote{padding:30px;border:1px solid var(--line-2);border-radius:var(--rad);background:var(--card)}
+.quote .stars{color:var(--amber);letter-spacing:3px;margin-bottom:14px}
+.quote p{color:var(--white);font-size:16px}
+.quote .who{margin-top:18px;display:flex;align-items:center;gap:12px}
+.quote .av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+font-weight:800;background:var(--grad);color:#fff}
+.quote .who b{display:block;font-size:15px}
+.quote .who span{font-size:13px;color:var(--mut)}
+/* split / case */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+.case-visual{min-height:340px;border-radius:22px;padding:34px;display:flex;flex-direction:column;
+justify-content:flex-end;background:linear-gradient(135deg,#4f6ef7,#3bb6b3);
+box-shadow:inset 0 0 0 1px rgba(255,255,255,.25),0 30px 70px rgba(0,0,0,.4)}
+.case-visual b{font-size:32px;line-height:1.1}
+.case-visual .pill{align-self:flex-start;margin-bottom:auto;background:rgba(0,0,0,.25);
+color:#fff;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:700}
+/* faq */
+.faq details{border:1px solid var(--line-2);border-radius:14px;padding:20px 22px;
+background:var(--card);margin-bottom:14px;transition:.2s}
+.faq details[open]{background:var(--card-2);border-color:var(--blue)}
+.faq summary{cursor:pointer;font-weight:700;font-size:17px;list-style:none;
+display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--teal);font-size:24px;font-weight:700;transition:.2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{color:var(--mut);margin-top:14px}
+/* prose */
+.prose{max-width:780px}
+.prose h2{font-size:24px;margin:34px 0 14px}
+.prose p{color:var(--mut);margin-bottom:16px}
+/* cta band */
+.cta{background:linear-gradient(135deg,rgba(79,110,247,.16),rgba(59,182,179,.12));
+border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.cta .wrap{max-width:760px}
+.cta h2{margin-bottom:16px}
+.cta .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.cta .fine{margin-top:18px;color:var(--mut-2);font-size:14px}
+/* contact */
+.cgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:start}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.info-card{padding:26px;border:1px solid var(--line-2);border-radius:18px;background:var(--card);margin-bottom:18px}
+.info-card h3{font-size:18px;margin-bottom:8px}
+.info-card p,.info-card a{color:var(--mut)}
+.fstatus{margin-top:14px;font-weight:700}
+/* footer */
+.foot{background:var(--bg-1);border-top:1px solid var(--line);padding:64px 0 0}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:36px}
+.foot-brand img{width:158px;margin-bottom:16px}
+.foot-brand p{color:var(--mut);font-size:14.5px;max-width:300px}
+.foot h4{font-size:14px;letter-spacing:.05em;margin-bottom:16px}
+.foot ul{list-style:none;padding:0;margin:0}
+.foot li{margin:10px 0}
+.foot a{color:var(--mut);font-size:14.5px}
+.foot a:hover{color:#fff}
+.foot address{font-style:normal;color:var(--mut);font-size:14.5px;line-height:1.9}
+.foot-bot{margin-top:54px;border-top:1px solid var(--line);padding:24px 0;
+display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.foot-bot p{color:var(--mut-2);font-size:14px}
+.soc{display:flex;gap:10px}
+.soc a{width:38px;height:38px;border-radius:11px;border:1px solid var(--line-2);
+display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px}
+.soc a:hover{background:var(--card-2)}
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+/* responsive */
+@media(max-width:960px){
+.menu,.nav-cta .btn{display:none}.burger{display:block}
+.hero-grid,.roi,.split,.cgrid{grid-template-columns:1fr}
+.bento{grid-template-columns:1fr 1fr}.b-wide,.b-tall,.b-third{grid-column:span 1}
+.g3,.g4,.tiers,.steps{grid-template-columns:1fr}.glance{grid-template-columns:1fr 1fr}
+.hero{padding:120px 0 70px}
+}
+@media(max-width:560px){
+.wrap{padding:0 18px}section{padding:64px 0}.hero{padding:108px 0 56px}
+.g2,.bento{grid-template-columns:1fr}.glance{grid-template-columns:1fr}
+.frow{grid-template-columns:1fr}.stat-grid{grid-template-columns:1fr}
+.btn{width:100%}.hero-cta{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Cloud Hak Ltd", "url": "https://cloud-hak.com", "logo": "https://cloud-hak.com/assets/logo.png", "email": "info@cloud-hak.com", "telephone": "+447800920042", "sameAs": ["https://www.linkedin.com/company/cloud-hak", "https://x.com/cloudhak"], "address": {"@type": "PostalAddress", "streetAddress": "117 Holmes Avenue", "addressLocality": "Hove", "addressRegion": "East Sussex", "postalCode": "BN3 7LF", "addressCountry": "GB"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "serviceType": "Voice AI", "provider": {"@type": "Organization", "name": "Cloud Hak Ltd"}, "areaServed": "GB", "url": "https://cloud-hak.com/claude/services/voice-ai/", "description": "AI voice agents answer, route and book calls 24/7 for local businesses, so you never miss a lead. From £300/mo."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cloud-hak.com/claude/"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://cloud-hak.com/claude/services/"}, {"@type": "ListItem", "position": 3, "name": "Voice AI", "item": "https://cloud-hak.com/claude/services/voice-ai/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a voice AI agent?", "acceptedAnswer": {"@type": "Answer", "text": "An AI phone assistant that answers calls in a natural voice, books appointments, transfers urgent calls and logs everything to your CRM."}}, {"@type": "Question", "name": "Who is voice AI for?", "acceptedAnswer": {"@type": "Answer", "text": "Businesses that miss calls, need after-hours cover or want every enquiry captured and booked."}}, {"@type": "Question", "name": "How much does voice AI cost?", "acceptedAnswer": {"@type": "Answer", "text": "Voice AI starts at £300 Starter and £500 Professional, with custom Enterprise pricing for high volume."}}, {"@type": "Question", "name": "How long does it take?", "acceptedAnswer": {"@type": "Answer", "text": "Most voice agents are configured and live within one to two weeks."}}, {"@type": "Question", "name": "Can it handle multiple languages?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Multilingual agents are available on the Enterprise tier for diverse customer bases."}}]}</script>
+</head>
+<body>
+<header class="nav">
+<div class="wrap nav-in">
+<a class="brand" href="/claude/" aria-label="Cloud Hak home"><img src="/assets/logo.png" alt="Cloud Hak Ltd logo"></a>
+<nav class="menu" aria-label="Primary">
+<div class="dd"><button type="button" aria-haspopup="true">Services &#9662;</button>
+<div class="dd-menu"><a href="/claude/services/websites/"><b>Professional Websites</b><span>Custom-built</span></a><a href="/claude/services/crm/"><b>Cloud Hak CRM</b><span>Lead capture</span></a><a href="/claude/services/chatbots/"><b>AI Chatbots</b><span>24/7 intelligent chat that answers questio</span></a><a href="/claude/services/voice-ai/"><b>Voice AI Agents</b><span>AI answers</span></a><a href="/claude/services/seo/"><b>SEO & Local Search</b><span>Optimised Google profiles</span></a></div></div>
+<a href="/claude/pricing/">Pricing</a>
+<a href="/claude/about/">About</a>
+<a href="/claude/work/">Work</a>
+<a href="/claude/contact/">Contact</a>
+</nav>
+<div class="nav-cta">
+<a class="btn btn-pri btn-sm" href="/claude/contact/">Book Consultation</a>
+<button class="burger" data-burger type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
+</div>
+<nav class="mobile" data-mobile aria-label="Mobile">
+<div class="mlabel">Services</div>
+<a href="/claude/services/websites/">Professional Websites</a><a href="/claude/services/crm/">Cloud Hak CRM</a><a href="/claude/services/chatbots/">AI Chatbots</a><a href="/claude/services/voice-ai/">Voice AI Agents</a><a href="/claude/services/seo/">SEO & Local Search</a>
+<div class="mlabel">Company</div>
+<a href="/claude/pricing/">Pricing</a>
+<a href="/claude/about/">About</a>
+<a href="/claude/work/">Work</a>
+<a href="/claude/contact/">Contact</a>
+<a class="btn btn-pri btn-block" style="margin-top:22px" href="/claude/contact/">Book Free Consultation</a>
+</nav>
+</header>
+<main>
+<section class="hero"><div class="orb orb-a"></div><div class="orb orb-b"></div>
+<div class="wrap"><span class="eyebrow">Voice AI</span>
+<h1 style="margin:20px 0;max-width:900px">Every Call Answered. Every Lead Captured.</h1>
+<p class="lead">AI voice agents that answer, route and book calls 24/7 — so you never miss another lead, even after hours.</p>
+<div class="hero-cta"><a class="btn btn-pri" href="/claude/contact/">Book Free Consultation</a>
+<a class="btn btn-gho" href="/claude/pricing/">View Pricing</a></div>
+<dl class="glance"><div><dt>Best for</dt><dd>Missed-call recovery</dd></div><div><dt>From</dt><dd>£300/mo</dd></div><div><dt>Live in</dt><dd>1–2 weeks</dd></div><div><dt>Cover</dt><dd>24/7</dd></div></dl>
+</div></section><section><div class="wrap"><div class="split">
+<div><span class="eyebrow">Overview</span><h2 style="margin:18px 0 16px">What is a Cloud Hak voice AI agent?</h2>
+<p class="muted">A Cloud Hak voice AI agent is an intelligent phone assistant that answers inbound calls in a natural voice, books appointments, transfers urgent calls and logs everything to your CRM — capturing leads you would otherwise miss.</p>
+<h3 style="font-size:18px;margin:26px 0 14px">What you get</h3><ul class="flist"><li>Inbound call handling</li><li>Outbound follow-up campaigns</li><li>Appointment booking</li><li>Smart call transfer rules</li><li>Multilingual options</li><li>Automatic CRM call logging</li></ul></div>
+<div class="glass-card"><h3 style="font-size:18px;margin-bottom:16px">Who it's for</h3>
+<ul class="flist"><li>Businesses that miss calls</li><li>After-hours enquiry handling</li><li>Clinics and booking-led services</li><li>Sales teams needing follow-up</li><li>Multilingual local businesses</li></ul></div>
+</div></div></section>
+<section style="background:var(--bg-1)"><div class="wrap">
+<div class="sec-head center"><span class="eyebrow">Pricing</span><h2 style="margin-top:18px">Simple, transparent pricing</h2>
+<p style="margin-left:auto;margin-right:auto">Pick the tier that fits today — you can scale up any time.</p></div>
+<div class="tiers"><div class="tier rv"><h3>Starter</h3><div class="price">&pound;300</div>
+<p class="muted">Never miss an inbound call.</p><ul class="flist"><li>Inbound call answering</li><li>Appointment booking</li><li>Call logging</li><li>Email summaries</li></ul>
+<a class="btn btn-gho btn-block" href="/claude/contact/">Get Started</a></div><div class="tier feat rv"><span class="tag">POPULAR</span><h3>Professional</h3><div class="price">&pound;500</div>
+<p class="muted">Inbound and outbound, fully managed.</p><ul class="flist"><li>Everything in Starter</li><li>Outbound campaigns</li><li>Call transfer rules</li><li>CRM integration</li><li>Priority support</li></ul>
+<a class="btn btn-pri btn-block" href="/claude/contact/">Get Started</a></div><div class="tier rv"><h3>Enterprise</h3><div class="price">Custom</div>
+<p class="muted">High-volume and multilingual.</p><ul class="flist"><li>Everything in Professional</li><li>Multilingual agents</li><li>Custom integrations</li><li>Dedicated tuning</li></ul>
+<a class="btn btn-gho btn-block" href="/claude/contact/">Get Started</a></div></div></div></section>
+<section><div class="wrap"><div class="sec-head center"><span class="eyebrow">Process</span>
+<h2 style="margin-top:18px">How we deliver</h2></div><div class="steps"><div class="step rv"><div class="num">1</div><h3>Configure</h3><p>We set up your call flows, booking rules and transfer logic to match your business.</p></div><div class="step rv"><div class="num">2</div><h3>Connect</h3><p>We connect the agent to your phone number, calendar and CRM.</p></div><div class="step rv"><div class="num">3</div><h3>Refine</h3><p>We review call recordings and tune the agent for better outcomes.</p></div></div></div></section><section class="faq"><div class="wrap">
+<div class="sec-head"><span class="eyebrow">FAQs</span><h2 style="margin-top:18px">Voice AI FAQs</h2></div>
+<details class="rv"><summary>What is a voice AI agent?</summary><p>An AI phone assistant that answers calls in a natural voice, books appointments, transfers urgent calls and logs everything to your CRM.</p></details><details class="rv"><summary>Who is voice AI for?</summary><p>Businesses that miss calls, need after-hours cover or want every enquiry captured and booked.</p></details><details class="rv"><summary>How much does voice AI cost?</summary><p>Voice AI starts at £300 Starter and £500 Professional, with custom Enterprise pricing for high volume.</p></details><details class="rv"><summary>How long does it take?</summary><p>Most voice agents are configured and live within one to two weeks.</p></details><details class="rv"><summary>Can it handle multiple languages?</summary><p>Yes. Multilingual agents are available on the Enterprise tier for diverse customer bases.</p></details>
+</div></section><section class="cta"><div class="wrap">
+<span class="eyebrow">Get started</span>
+<h2 style="margin-top:18px">Ready to build this for your business?</h2>
+<p class="muted" style="margin:0 auto;max-width:560px">Book a free, no-obligation consultation. We will show you exactly how we can help — no hard sell.</p>
+<div class="btns"><a class="btn btn-pri" href="/claude/contact/">Book Free Consultation</a>
+<a class="btn btn-gho" href="/claude/work/">See Our Work</a></div>
+<p class="fine">No contracts. No commitments. Just results.</p>
+</div></section>
+</main>
+<footer class="foot">
+<div class="wrap">
+<div class="foot-grid">
+<div class="foot-brand">
+<a href="/claude/"><img src="/assets/logo.png" alt="Cloud Hak Ltd logo"></a>
+<p>We build, automate and grow local businesses with websites, CRM, AI agents and local SEO — done for you by humans and AI.</p>
+</div>
+<div><h4>Services</h4><ul>
+<li><a href="/claude/services/websites/">Websites</a></li>
+<li><a href="/claude/services/crm/">CRM</a></li>
+<li><a href="/claude/services/chatbots/">Chatbots</a></li>
+<li><a href="/claude/services/voice-ai/">Voice AI</a></li>
+<li><a href="/claude/services/seo/">SEO</a></li>
+</ul></div>
+<div><h4>Company</h4><ul>
+<li><a href="/claude/about/">About</a></li>
+<li><a href="/claude/work/">Work</a></li>
+<li><a href="/claude/pricing/">Pricing</a></li>
+<li><a href="/claude/contact/">Contact</a></li>
+</ul></div>
+<div><h4>Contact</h4>
+<address>
+117 Holmes Avenue<br>Hove, East Sussex BN3 7LF<br>United Kingdom<br><br>
+<a href="tel:+447800920042">07800 920042</a><br>
+<a href="mailto:info@cloud-hak.com">info@cloud-hak.com</a>
+</address>
+<h4 style="margin-top:22px">Legal</h4>
+<ul><li><a href="/claude/privacy/">Privacy Policy</a></li><li><a href="/claude/terms/">Terms of Service</a></li></ul>
+</div>
+</div>
+<div class="foot-bot">
+<p>&copy; 2026 Cloud Hak Ltd. All rights reserved.</p>
+<div class="soc">
+<a href="https://www.linkedin.com/company/cloud-hak" aria-label="LinkedIn">in</a>
+<a href="https://x.com/cloudhak" aria-label="X">X</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+(function(){
+var b=document.querySelector('[data-burger]'),m=document.querySelector('[data-mobile]');
+if(b&&m){b.addEventListener('click',function(){var o=m.classList.toggle('open');
+document.body.classList.toggle('lock',o);b.setAttribute('aria-expanded',o);});}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){
+if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+var f=document.querySelector('[data-roi]');
+if(f){f.addEventListener('submit',function(ev){ev.preventDefault();
+var leads=+f.leads.value||0,appts=+f.appts.value||0,val=+f.val.value||0,
+fu=f.fu.value==='5'?5:(+f.fu.value||0);
+var missed=Math.max(leads-appts,0);
+var pen=Math.min(.38,.12+Math.max(0,5-fu)*.045);
+var lost=Math.round(missed*val*pen);
+f.querySelector('[data-roi-out]').innerHTML='You are losing approximately'+
+'<div class="big grad-text">\u00a3'+lost.toLocaleString('en-GB')+'</div>'+
+'<div class="muted">per month from slow follow-ups and missed leads</div>';});}
+document.querySelectorAll('[data-toggle]').forEach(function(g){
+var btns=g.querySelectorAll('[data-tab]');
+btns.forEach(function(btn){btn.addEventListener('click',function(){
+btns.forEach(function(x){x.classList.remove('on');});btn.classList.add('on');
+g.querySelectorAll('[data-panel]').forEach(function(p){p.hidden=p.dataset.panel!==btn.dataset.tab;});});});});
+var cf=document.querySelector('[data-contact]');
+if(cf){cf.addEventListener('submit',function(ev){ev.preventDefault();
+var d=new FormData(cf),nm=String(d.get('name')||'').trim().split(/\s+/);
+var s=cf.querySelector('[data-status]');s.textContent='Sending\u2026';s.style.color='#9aa7bd';
+var payload={firstName:nm[0]||'',lastName:nm.slice(1).join(' '),email:d.get('email'),
+phone:d.get('phone'),message:'Business: '+(d.get('business')||'')+'\nService: '+(d.get('need')||'')+'\n\n'+(d.get('message')||'')};
+fetch(cf.action,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+.then(function(){s.textContent='Thank you \u2014 we have your details and will be in touch within one working day.';s.style.color='#22c55e';cf.reset();})
+.catch(function(){s.textContent='Something went wrong. Please call 07800 920042 or email info@cloud-hak.com.';s.style.color='#f59e0b';});});}
+})();
+</script>
+</body>
+</html>
